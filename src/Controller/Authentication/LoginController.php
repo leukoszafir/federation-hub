@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\Accounts;
+namespace App\Controller\Authentication;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 /**
- * @Route("/login")
+ * @Route("/login", name="authentication.login")
  */
 final class LoginController extends AbstractController
 {
@@ -23,6 +23,10 @@ final class LoginController extends AbstractController
 
     public function __invoke(): Response
     {
-        return $this->render('security/login.html.twig');
+        return $this->render('authentication/login.html.twig', [
+            'last_username' => null,
+            'error' => 'To continue, you need to sign in.',
+            'login_url' => $this->generateUrl('authentication.login'),
+        ]);
     }
 }

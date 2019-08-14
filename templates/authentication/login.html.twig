@@ -1,0 +1,36 @@
+{% extends layout('standalone') %}
+{% trans_default_domain 'authentication' %}
+
+{% block title %}
+    {{ 'login_title'|trans }}
+{% endblock %}
+
+{% block body %}
+    <form action="{{ login_url }}" class="login-form" method="POST">
+        <div class="login-form__header">
+            {{ 'login_title'|trans }}
+        </div>
+        {% if error is not empty %}
+            <div class="login-form__error">
+                {{ error }}
+            </div>
+        {% endif %}
+        <div class="login-form__fields">
+            <div class="login-form__field">
+                <label for="username" class="login-form__label">
+                    {{ 'login_username'|trans }}
+                </label>
+                <input type="text" id="username" name="username" class="login-form__entry">
+            </div>
+            <div class="login-form__field">
+                <label for="password" class="login-form__label">
+                    {{ 'login_password'|trans }}
+                </label>
+                <input type="password" id="password" name="password" class="login-form__entry">
+            </div>
+        </div>
+        <div class="login-form__footer">
+            <button type="submit" class="login-form__submit">Sign in</button>
+        </div>
+    </form>
+{% endblock %}

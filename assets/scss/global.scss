@@ -1,3 +1,10 @@
-body {
-    background-color: lightgray;
+$primary-background-color: #069;
+$primary-text-color: #fff;
+
+body, input, button {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.3;
 }
+
+@import 'authentication/login';
