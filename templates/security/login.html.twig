@@ -1,9 +1,10 @@
 {% extends layout('standalone') %}
+{% trans_default_domain 'accounts' %}
 
 {% block title %}
     {{ 'login_title'|trans }}
 {% endblock %}
 
 {% block body %}
-    Hello!
+    {{ 'login_required'|trans }}
 {% endblock %}
